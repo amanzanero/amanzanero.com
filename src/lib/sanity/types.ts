@@ -254,7 +254,7 @@ export type Slug = {
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/lib/sanity/queries.ts
 // Variable: POSTS_QUERY
-// Query:   *[_type == "post"] | order(dateTime(publishedAt) asc)  {    _id,    slug,    title,    publishedAt  }
+// Query:   *[_type == "post"] | order(dateTime(publishedAt) desc)  {    _id,    slug,    title,    publishedAt  }
 export type POSTS_QUERYResult = Array<{
   _id: string;
   slug: Slug | null;
@@ -267,10 +267,22 @@ export type SLUGS_QUERYResult = Array<{
   slug: string | null;
 }>;
 // Variable: BLOG_POST_QUERY
-// Query:   *[_type == "post" && slug.current == $slug][0] {    _id,    title,    publishedAt,    body  }
+// Query:   *[_type == "post" && slug.current == $slug][0] {    _id,    title,    mainImage,    publishedAt,    body  }
 export type BLOG_POST_QUERYResult = {
   _id: string;
   title: string | null;
+  mainImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
   publishedAt: string | null;
   body: BlockContent | null;
 } | null;

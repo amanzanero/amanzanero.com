@@ -19,6 +19,7 @@ export const BLOG_POST_QUERY = groq`
   *[_type == "post" && slug.current == $slug][0] {
     _id,
     title,
+    mainImage,
     publishedAt,
     body
   }
