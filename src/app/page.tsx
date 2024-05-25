@@ -83,6 +83,11 @@ export default function Home() {
       <P>Other places you can find me:</P>
       <ul className="list-disc pl-5 sm:pl-4">
         <li>
+          <A href="https://www.linkedin.com/in/andrewmanzanero" newTab>
+            linkedin.com/in/andrewmanzanero
+          </A>
+        </li>
+        <li>
           <A href="https://github.com/amanzanero" newTab>
             github.com/amanzanero
           </A>
@@ -91,7 +96,7 @@ export default function Home() {
           <A href="https://twitter.com/AndrewManzanero" newTab>
             twitter.com/AndrewManzanero
           </A>
-          &nbsp;(I don&apos;t tweet much)
+          &nbsp;(I don&apos;t tweet much and refuse to call it X)
         </li>
       </ul>
       <div className="h-8" />

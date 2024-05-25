@@ -28,7 +28,7 @@ export const H2: TypographyComponent<HTMLHeadingElement> = ({
   children,
   ...props
 }) => (
-  <h1
+  <h2
     className={cn(
       className,
       "scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0",
@@ -36,14 +36,14 @@ export const H2: TypographyComponent<HTMLHeadingElement> = ({
     {...props}
   >
     {children}
-  </h1>
+  </h2>
 );
 export const H3: TypographyComponent<HTMLHeadingElement> = ({
   className,
   children,
   ...props
 }) => (
-  <h1
+  <h3
     className={cn(
       className,
       "scroll-m-20 text-2xl font-semibold tracking-tight",
@@ -51,7 +51,7 @@ export const H3: TypographyComponent<HTMLHeadingElement> = ({
     {...props}
   >
     {children}
-  </h1>
+  </h3>
 );
 
 export const H4: TypographyComponent<HTMLHeadingElement> = ({
@@ -59,7 +59,7 @@ export const H4: TypographyComponent<HTMLHeadingElement> = ({
   children,
   ...props
 }) => (
-  <h1
+  <h4
     className={cn(
       className,
       "scroll-m-20 text-xl font-semibold tracking-tight",
@@ -67,7 +67,7 @@ export const H4: TypographyComponent<HTMLHeadingElement> = ({
     {...props}
   >
     {children}
-  </h1>
+  </h4>
 );
 
 export const P: TypographyComponent<HTMLParagraphElement> = ({
