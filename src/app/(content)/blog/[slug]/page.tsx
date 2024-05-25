@@ -40,6 +40,7 @@ export async function generateMetadata(
           alt,
         },
       ],
+      url: `https://amanzanero.com/blog/${slug}`,
     },
   };
 }
