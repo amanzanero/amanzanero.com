@@ -6,6 +6,9 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/themeProvider";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { PHProvider } from "@/components/phProvider";
+import PostHogPageView from "@/components/phPageView";
+import { env } from "@/env";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -21,22 +24,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <body className={cn(font.className, "flex min-h-[100dvh] w-full flex-col")}>
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
+    <PHProvider enabled={env.NODE_ENV === "production"}>
+      <PostHogPageView />
+      <body
+        className={cn(font.className, "flex min-h-[100dvh] w-full flex-col")}
       >
-        <Header />
-        <Separator />
-        <main className="flex w-full flex-1 justify-center px-4 pt-4 sm:pt-8">
-          <section className="max-w-screen-md flex-1 flex-col">
-            {children}
-          </section>
-        </main>
-      </ThemeProvider>
-    </body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <Separator />
+          <main className="flex w-full flex-1 justify-center px-4 pt-4 sm:pt-8">
+            <section className="max-w-screen-md flex-1 flex-col">
+              {children}
+            </section>
+          </main>
+        </ThemeProvider>
+      </body>
+    </PHProvider>
   );
 }
 
