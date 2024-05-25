@@ -21,6 +21,7 @@ export const BLOG_POST_QUERY = groq`
     title,
     mainImage,
     publishedAt,
+    excerpt,
     body
   }
 `;

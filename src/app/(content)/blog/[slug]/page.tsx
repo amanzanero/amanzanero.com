@@ -13,7 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ImageComponent } from "./image";
+import { ImageComponent, getImageData } from "./image";
 
 type BlogProps = { params: { slug: string } };
 
@@ -25,9 +25,22 @@ export async function generateMetadata(
     BLOG_POST_QUERY,
     { slug },
   );
-
+  const { src, width, height, alt } = getImageData(blogPost?.mainImage as any);
+  const excerpt = blogPost?.excerpt;
   return {
     title: `${blogPost?.title} - Andrew's Blog`,
+    openGraph: {
+      title: `${blogPost?.title} - Andrew's Blog`,
+      description: excerpt ? excerpt : undefined,
+      images: [
+        {
+          url: src,
+          width,
+          height,
+          alt,
+        },
+      ],
+    },
   };
 }
 

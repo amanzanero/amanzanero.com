@@ -146,6 +146,7 @@ export type Post = {
     [internalGroqTypeReferenceTo]?: "category";
   }>;
   publishedAt?: string;
+  excerpt?: string;
   body?: BlockContent;
 };
 
@@ -267,7 +268,7 @@ export type SLUGS_QUERYResult = Array<{
   slug: string | null;
 }>;
 // Variable: BLOG_POST_QUERY
-// Query:   *[_type == "post" && slug.current == $slug][0] {    _id,    title,    mainImage,    publishedAt,    body  }
+// Query:   *[_type == "post" && slug.current == $slug][0] {    _id,    title,    mainImage,    publishedAt,    excerpt,    body  }
 export type BLOG_POST_QUERYResult = {
   _id: string;
   title: string | null;
@@ -284,5 +285,6 @@ export type BLOG_POST_QUERYResult = {
     _type: "image";
   } | null;
   publishedAt: string | null;
+  excerpt: string | null;
   body: BlockContent | null;
 } | null;
