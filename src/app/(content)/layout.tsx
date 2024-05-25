@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../globals.css";
-import React from "react";
+import React, { Suspense } from "react";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/themeProvider";
 import Link from "next/link";
@@ -25,7 +25,9 @@ export default function RootLayout({
 }>) {
   return (
     <PHProvider enabled={env.NODE_ENV === "production"}>
-      <PostHogPageView />
+      <Suspense>
+        <PostHogPageView />
+      </Suspense>
       <body
         className={cn(font.className, "flex min-h-[100dvh] w-full flex-col")}
       >
