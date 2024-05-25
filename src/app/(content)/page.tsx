@@ -1,6 +1,24 @@
 import { A, H1, H2, H3, P } from "@/components/ui/typography";
+import { Metadata } from "next";
 import Image from "next/image";
 import React from "react";
+
+export const metadata: Metadata = {
+  icons: "/favicon.ico",
+  openGraph: {
+    title: "Andrew Manzanero",
+    description: "Personal website of Andrew Manzanero",
+    url: "https://amanzanero.com",
+    images: [
+      {
+        url: "https://amanzanero.com/pfp.png",
+        width: 100,
+        height: 100,
+        alt: "Andrew Manzanero",
+      },
+    ],
+  },
+};
 
 export default function Home() {
   return (

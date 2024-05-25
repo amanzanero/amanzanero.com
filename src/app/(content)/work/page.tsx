@@ -1,4 +1,21 @@
 import { H1, P } from "@/components/ui/typography";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  openGraph: {
+    title: "Andrew's Work History and Projects",
+    description: "Details about Andrew's work history, resume, and projects.",
+    url: "https://amanzanero.com/work",
+    images: [
+      {
+        url: "https://amanzanero.com/pfp.png",
+        width: 100,
+        height: 100,
+        alt: "Andrew Manzanero",
+      },
+    ],
+  },
+};
 
 export default function Work() {
   return (

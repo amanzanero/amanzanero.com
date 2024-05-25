@@ -8,6 +8,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog - Andrew Manzanero",
   description: "A list of my blog posts.",
+  openGraph: {
+    title: "Blog - Andrew Manzanero",
+    description: "List of Andrew Manzanero's blog posts.",
+    url: "https://amanzanero.com/blog",
+  },
 };
 
 export default async function Blog() {
