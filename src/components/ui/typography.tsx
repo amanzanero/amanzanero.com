@@ -83,18 +83,6 @@ export const P: TypographyComponent<HTMLParagraphElement> = ({
   </p>
 );
 
-export const BlockQuote: TypographyComponent<
-  HTMLQuoteElement,
-  React.BlockquoteHTMLAttributes<HTMLQuoteElement>
-> = ({ className, children, ...props }) => (
-  <blockquote
-    className={cn(className, "leading-7 [&:not(:first-child)]:mt-6")}
-    {...props}
-  >
-    {children}
-  </blockquote>
-);
-
 export const A: TypographyComponent<
   HTMLAnchorElement,
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -111,4 +99,19 @@ export const A: TypographyComponent<
   >
     {children}
   </a>
+);
+
+export const BlockQuote: TypographyComponent<
+  HTMLQuoteElement,
+  React.BlockquoteHTMLAttributes<HTMLQuoteElement>
+> = ({ className, children, ...props }) => (
+  <blockquote
+    className={cn(
+      className,
+      "mt-6 border-l-4 border-gray-800 bg-gray-200 py-1 pl-6 italic dark:border-gray-200 dark:bg-gray-800",
+    )}
+    {...props}
+  >
+    {children}
+  </blockquote>
 );

@@ -1,13 +1,14 @@
-import { A, H1, H2, H3, H4, P } from "@/components/ui/typography";
+import { A, BlockQuote, H1, H2, H3, H4, P } from "@/components/ui/typography";
 import {
   PortableText,
   type PortableTextReactComponents,
 } from "@portabletext/react";
+import { ImageComponent } from "./image";
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
     normal: ({ children }) => <P>{children}</P>,
-    blockquote: ({ children }) => <blockquote>{children}</blockquote>,
+    blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
     h1: ({ children }) => <H1>{children}</H1>,
     h2: ({ children }) => <H2>{children}</H2>,
     h3: ({ children }) => <H3>{children}</H3>,
@@ -38,6 +39,9 @@ const components: Partial<PortableTextReactComponents> = {
         </A>
       );
     },
+  },
+  types: {
+    image: ImageComponent,
   },
 };
 
