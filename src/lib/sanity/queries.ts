@@ -1,7 +1,7 @@
 import { groq } from "next-sanity";
 
 export const POSTS_QUERY = groq`
-  *[_type == "post"] | order(publishedAt) {
+  *[_type == "post"] | order(dateTime(publishedAt) desc)  {
     _id,
     slug,
     title,

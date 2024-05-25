@@ -7,17 +7,15 @@ export function cn(...inputs: ClassValue[]) {
 
 export const formattedDate = (dateString: string) => {
   const date = new Date(dateString);
-  return `${
-    date.toLocaleString("default", { month: "long" }) +
-    " " +
-    date.getDate() +
-    nth(date.getDate()) +
-    ", " +
-    date.getFullYear()
-  }`;
+  // return in format MM/DD/YYYY with leading zeros
+  return `${numberToStringWithLeadingZero(date.getMonth() + 1)}/${numberToStringWithLeadingZero(date.getDate())}/${date.getFullYear()}`;
 };
 
-const nth = (d: number) => {
+const numberToStringWithLeadingZero = (num: number) => {
+  return ("0" + num.toString()).slice(-2);
+};
+
+const _nth = (d: number) => {
   if (d > 3 && d < 21) return "th";
   switch (d % 10) {
     case 1:

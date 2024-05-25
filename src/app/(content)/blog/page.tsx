@@ -2,7 +2,7 @@ import { H1, A } from "@/components/ui/typography";
 import { sanityCmsClient } from "@/lib/sanity/client";
 import { POSTS_QUERY } from "@/lib/sanity/queries";
 import { POSTS_QUERYResult } from "@/lib/sanity/types";
-import { formattedDate } from "@/lib/utils";
+import { PostedOn } from "./postedOn";
 
 export default async function Blog() {
   const posts = await sanityCmsClient.fetch<POSTS_QUERYResult>(POSTS_QUERY);
@@ -14,8 +14,8 @@ export default async function Blog() {
         return (
           <div key={post._id}>
             {i + 1}.&nbsp;
+            <PostedOn date={post.publishedAt!} /> -&nbsp;
             <A href={`/blog/${post.slug!.current}`}>{post.title}</A>
-            &nbsp;({formattedDate(post.publishedAt!)})
           </div>
         );
       })}

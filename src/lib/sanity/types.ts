@@ -254,7 +254,7 @@ export type Slug = {
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/lib/sanity/queries.ts
 // Variable: POSTS_QUERY
-// Query:   *[_type == "post"] | order(publishedAt) {    _id,    slug,    title,    publishedAt  }
+// Query:   *[_type == "post"] | order(dateTime(publishedAt) asc)  {    _id,    slug,    title,    publishedAt  }
 export type POSTS_QUERYResult = Array<{
   _id: string;
   slug: Slug | null;
