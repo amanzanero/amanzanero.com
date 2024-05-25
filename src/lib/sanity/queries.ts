@@ -8,3 +8,18 @@ export const POSTS_QUERY = groq`
     publishedAt
   }
 `;
+
+export const SLUGS_QUERY = groq`
+  *[_type == "post"] {
+    "slug": slug.current
+  }
+`;
+
+export const BLOG_POST_QUERY = groq`
+  *[_type == "post" && slug.current == $slug][0] {
+    _id,
+    title,
+    publishedAt,
+    body
+  }
+`;

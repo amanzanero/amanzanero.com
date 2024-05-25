@@ -98,16 +98,16 @@ export const BlockQuote: TypographyComponent<
 export const A: TypographyComponent<
   HTMLAnchorElement,
   React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  { newTab?: true }
-> = ({ className, children, newTab, ...props }) => (
+  { newTab?: boolean }
+> = ({ className, children, newTab = false, ...props }) => (
   <a
     className={cn(
       className,
       "font-medium text-blue-600 underline-offset-4 hover:underline dark:text-blue-500",
     )}
     {...props}
-    target={newTab === true ? "_blank" : props.target}
-    rel={newTab === true ? "noopener noreferrer" : props.rel}
+    target={newTab ? "_blank" : props.target}
+    rel={newTab ? "noopener noreferrer" : props.rel}
   >
     {children}
   </a>

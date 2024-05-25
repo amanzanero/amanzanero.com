@@ -261,3 +261,16 @@ export type POSTS_QUERYResult = Array<{
   title: string | null;
   publishedAt: string | null;
 }>;
+// Variable: SLUGS_QUERY
+// Query:   *[_type == "post"] {    "slug": slug.current  }
+export type SLUGS_QUERYResult = Array<{
+  slug: string | null;
+}>;
+// Variable: BLOG_POST_QUERY
+// Query:   *[_type == "post" && slug.current == $slug][0] {    _id,    title,    publishedAt,    body  }
+export type BLOG_POST_QUERYResult = {
+  _id: string;
+  title: string | null;
+  publishedAt: string | null;
+  body: BlockContent | null;
+} | null;

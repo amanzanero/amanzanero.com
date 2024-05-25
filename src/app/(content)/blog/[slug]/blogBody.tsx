@@ -1,12 +1,48 @@
+import { A, H1, H2, H3, H4, P } from "@/components/ui/typography";
 import {
   PortableText,
   type PortableTextReactComponents,
 } from "@portabletext/react";
 
-export const components: Partial<PortableTextReactComponents> = {};
+const components: Partial<PortableTextReactComponents> = {
+  block: {
+    normal: ({ children }) => <P>{children}</P>,
+    blockquote: ({ children }) => <blockquote>{children}</blockquote>,
+    h1: ({ children }) => <H1>{children}</H1>,
+    h2: ({ children }) => <H2>{children}</H2>,
+    h3: ({ children }) => <H3>{children}</H3>,
+    h4: ({ children }) => <H4>{children}</H4>,
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="list-disc pl-5 pt-2 sm:pl-4">{children}</ul>
+    ),
+    numbered: ({ children }) => (
+      <ol className="list-decimal pl-5 pt-2 sm:pl-4">{children}</ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => <li>{children}</li>,
+    numbered: ({ children }) => <li>{children}</li>,
+  },
+  marks: {
+    link: ({ value, children }) => {
+      // check if same domain
+      const isExternalDomain = !value?.href?.startsWith(
+        "https://amanzanero.com",
+      );
+
+      return (
+        <A href={value?.href} newTab={isExternalDomain}>
+          {children}
+        </A>
+      );
+    },
+  },
+};
 
 export const BlockBody: React.FC<{
   blocks: any;
 }> = ({ blocks }) => {
-  return <PortableText value={[blocks]} components={components} />;
+  return <PortableText value={blocks} components={components} />;
 };
