@@ -76,7 +76,7 @@ export const P: TypographyComponent<HTMLParagraphElement> = ({
   ...props
 }) => (
   <p
-    className={cn(className, "leading-7 [&:not(:first-child)]:mt-6")}
+    className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
     {...props}
   >
     {children}
@@ -108,7 +108,7 @@ export const BlockQuote: TypographyComponent<
   <blockquote
     className={cn(
       className,
-      "mt-6 border-l-4 border-gray-800 bg-gray-200 py-1 pl-6 italic dark:border-gray-200 dark:bg-gray-800",
+      "mt-2 border-l-4 border-gray-800 bg-gray-200 py-1 pl-5 italic dark:border-gray-200 dark:bg-gray-800 sm:pl-4",
     )}
     {...props}
   >

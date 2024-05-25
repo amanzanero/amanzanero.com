@@ -26,6 +26,7 @@ export const ImageComponent = ({
       alt={value.alt || " "}
       width={width}
       height={height}
+      quality={90}
       style={{
         // Display alongside text if image appears inside a block text span
         display: isInline ? "inline-block" : "block",

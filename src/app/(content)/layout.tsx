@@ -39,7 +39,7 @@ export default function RootLayout({
         >
           <Header />
           <Separator />
-          <main className="flex w-full flex-1 justify-center px-4 pt-4 sm:pt-8">
+          <main className="flex w-full flex-1 justify-center px-4">
             <section className="max-w-screen-md flex-1 flex-col">
               {children}
             </section>

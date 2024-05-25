@@ -7,11 +7,13 @@ import { ImageComponent } from "./image";
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
-    normal: ({ children }) => <P>{children}</P>,
+    normal: ({ children }) => (
+      <P className="mt-2 [&:not(:first-child)]:mt-2">{children}</P>
+    ),
     blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
     h1: ({ children }) => <H1>{children}</H1>,
-    h2: ({ children }) => <H2>{children}</H2>,
-    h3: ({ children }) => <H3>{children}</H3>,
+    h2: ({ children }) => <H2 className="mt-8">{children}</H2>,
+    h3: ({ children }) => <H3 className="mt-4">{children}</H3>,
     h4: ({ children }) => <H4>{children}</H4>,
   },
   list: {

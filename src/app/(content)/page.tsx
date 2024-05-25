@@ -5,6 +5,7 @@ import React from "react";
 export default function Home() {
   return (
     <>
+      <div className="h-4 sm:h-8" />
       <div className="flex w-full items-center justify-between">
         <H1>
           Hi, I&apos;m
