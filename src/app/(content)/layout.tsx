@@ -1,16 +1,20 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "../globals.css";
-import React, { Suspense } from "react";
-import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/themeProvider";
-import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
 import { PHProvider } from "@/components/phProvider";
-import PostHogPageView from "@/components/phPageView";
+import { ThemeProvider } from "@/components/themeProvider";
+import { Separator } from "@/components/ui/separator";
 import { env } from "@/env";
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import dynamic from "next/dynamic";
+import { Inter } from "next/font/google";
+import Link from "next/link";
+import React from "react";
 
 const font = Inter({ subsets: ["latin"] });
+
+const PostHogPageView = dynamic(() => import("@/components/phPageView"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Andrew Manzanero",
@@ -25,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <PHProvider enabled={env.NODE_ENV === "production"}>
-      <Suspense>
-        <PostHogPageView />
-      </Suspense>
+      <PostHogPageView />
       <body
         className={cn(font.className, "flex min-h-[100dvh] w-full flex-col")}
       >

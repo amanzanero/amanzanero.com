@@ -1,7 +1,7 @@
-import urlBuilder from "@sanity/image-url";
-import { SanityImageSource, getImageDimensions } from "@sanity/asset-utils";
-import Image from "next/image";
 import { env } from "@/env";
+import { SanityImageSource, getImageDimensions } from "@sanity/asset-utils";
+import urlBuilder from "@sanity/image-url";
+import Image from "next/image";
 
 export const ImageComponent = ({
   value,

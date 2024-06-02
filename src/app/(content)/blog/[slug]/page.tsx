@@ -1,10 +1,6 @@
-import { H1 } from "@/components/ui/typography";
-import { sanityCmsClient } from "@/lib/sanity/client";
-import { BLOG_POST_QUERY, SLUGS_QUERY } from "@/lib/sanity/queries";
-import { BLOG_POST_QUERYResult, SLUGS_QUERYResult } from "@/lib/sanity/types";
 import { BlockBody } from "./blogBody";
+import { ImageComponent, getImageData } from "./image";
 import { PublishedAt } from "./publishedAt";
-import type { Metadata, ResolvingMetadata } from "next";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,7 +9,11 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { ImageComponent, getImageData } from "./image";
+import { H1 } from "@/components/ui/typography";
+import { sanityCmsClient } from "@/lib/sanity/client";
+import { BLOG_POST_QUERY, SLUGS_QUERY } from "@/lib/sanity/queries";
+import { BLOG_POST_QUERYResult, SLUGS_QUERYResult } from "@/lib/sanity/types";
+import type { Metadata, ResolvingMetadata } from "next";
 
 type BlogProps = { params: { slug: string } };
 

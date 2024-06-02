@@ -5,6 +5,8 @@ import posthog from "posthog-js";
 import { PostHogProvider } from "posthog-js/react";
 import React from "react";
 
+// app/providers.js
+
 export const PHProvider: React.FC<
   React.PropsWithChildren<{ enabled: boolean }>
 > = ({ children, enabled }) => {

@@ -1,8 +1,8 @@
+import { PostedOn } from "./postedOn";
 import { H1, A } from "@/components/ui/typography";
 import { sanityCmsClient } from "@/lib/sanity/client";
 import { POSTS_QUERY } from "@/lib/sanity/queries";
 import { POSTS_QUERYResult } from "@/lib/sanity/types";
-import { PostedOn } from "./postedOn";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

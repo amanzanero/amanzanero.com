@@ -1,9 +1,9 @@
+import { ImageComponent } from "./image";
 import { A, BlockQuote, H1, H2, H3, H4, P } from "@/components/ui/typography";
 import {
   PortableText,
   type PortableTextReactComponents,
 } from "@portabletext/react";
-import { ImageComponent } from "./image";
 
 const components: Partial<PortableTextReactComponents> = {
   block: {
