@@ -25,21 +25,25 @@ export async function generateMetadata(
     BLOG_POST_QUERY,
     { slug },
   );
-  const { src, width, height, alt } = getImageData(blogPost?.mainImage as any);
+  const imageData = blogPost?.mainImage
+    ? getImageData(blogPost?.mainImage as any)
+    : undefined;
   const excerpt = blogPost?.excerpt;
   return {
     title: `${blogPost?.title} - Andrew's Blog`,
     openGraph: {
       title: `${blogPost?.title} - Andrew's Blog`,
       description: excerpt ? excerpt : undefined,
-      images: [
-        {
-          url: src,
-          width,
-          height,
-          alt,
-        },
-      ],
+      images: imageData
+        ? [
+            {
+              url: imageData.src,
+              width: imageData.width,
+              height: imageData.height,
+              alt: imageData.alt,
+            },
+          ]
+        : [],
       url: `https://amanzanero.com/blog/${slug}`,
     },
   };
@@ -67,7 +71,9 @@ export default async function Blog({ params: { slug } }: BlogProps) {
       <div className="h-4 sm:h-8" />
       <H1>{blogPost?.title}</H1>
       <PublishedAt date={blogPost?.publishedAt!} />
-      <ImageComponent value={blogPost?.mainImage as any} isInline={false} />
+      {blogPost?.mainImage && (
+        <ImageComponent value={blogPost?.mainImage as any} isInline={false} />
+      )}
       <BlockBody blocks={blogPost?.body} />
       <div className="h-4 sm:h-8" />
     </>
