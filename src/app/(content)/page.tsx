@@ -61,16 +61,23 @@ export default function Home() {
       <div className="h-8" />
       <H2 id="about-me">About me</H2>
       <P>
-        My name is Andrew, and I’m a Software Engineer based out of San
-        Francisco, California. I’m currently working at&nbsp;
+        My name is Andrew, and I’m a Senior Software Engineer based out of the
+        Los Angeles Area. I’m currently working at&nbsp;
+        <A href="https://www.usenourish.com/" newTab>
+          Nourish
+        </A>
+        &nbsp;, a health tech company aiming to improve people&apos;s health by
+        making it easier to eat well.
+      </P>
+      <P>
+        Before Nourish, I was a Software Engineer at&nbsp;
         <A href="https://asana.com/" newTab>
           Asana
         </A>
         &nbsp;on the Core Performance team, working to make the webapp as fast
-        and snappy as possible.
-      </P>
-      <P>
-        Before Asana, I graduated from the&nbsp;
+        and snappy as possible. Prior to that I was on the Mobile Foundations
+        team where I worked on making it easier to develop features for our iOS
+        and Android apps. I graduated from the&nbsp;
         <A href="https://usc.edu" newTab>
           University of Southern California
         </A>
