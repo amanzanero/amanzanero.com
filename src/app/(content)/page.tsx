@@ -66,8 +66,8 @@ export default function Home() {
         <A href="https://www.usenourish.com/" newTab>
           Nourish
         </A>
-        &nbsp;, a health tech company aiming to improve people&apos;s health by
-        making it easier to eat well.
+        , a health tech company aiming to improve people&apos;s health by making
+        it easier to eat well.
       </P>
       <P>
         Before Nourish, I was a Software Engineer at&nbsp;
